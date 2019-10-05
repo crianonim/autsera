@@ -14,7 +14,7 @@ export default ({ dataSource }) => {
       {data.places.map(place => (
         <Place key={place.id} setPlace={setPlace} place={place} />
       ))}
-      <textarea style={{width:"100%",height:"1100px"}} value={"export default "+JSON.stringify(data,null," ")}></textarea>}
+      <textarea readOnly style={{width:"100%",height:"1100px"}} value={"export default "+JSON.stringify(data,null," ")}></textarea>}
     </div>
   );
 };
