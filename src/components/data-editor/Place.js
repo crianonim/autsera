@@ -1,7 +1,7 @@
 import React from "react";
 import Interaction from "./Interaction";
 
-export default ({ place, setPlace }) => (
+export default ({ place, setPlace, deletePlace }) => (
   <div className="editor-place">
     <h2>
       <label>
@@ -12,7 +12,7 @@ export default ({ place, setPlace }) => (
             setPlace({ ...place, name: e.target.value });
           }}
         />
-      </label>
+      </label><button onClick={deletePlace}>DEL</button>
     </h2>
     <div>
       <label>

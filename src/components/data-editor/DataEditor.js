@@ -31,7 +31,7 @@ export default ({ dataSource }) => {
         Add New Place
       </button>
       {data.places.map(place => (
-        <Place key={place.id} setPlace={setPlace} place={place} />
+        <Place key={place.id} setPlace={setPlace} deletePlace={()=>setData({...data,places:data.places.filter(pl=>place.id!==pl.id)})} place={place} />
       ))}
       <textarea
         readOnly
