@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({hint,options})=>(<div>
-    <h6>Hint: {hint.text}</h6>
+export default ({hint,setHint,options})=>(<div>
+    <h6><label>Hint: <input value={hint.text} onChange={e=>setHint({...hint,text:e.target.value})}/></label></h6>
     
   </div>)

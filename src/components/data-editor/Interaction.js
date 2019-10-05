@@ -18,7 +18,7 @@ export default ({ interaction, setInteraction }) => {
         <Option key={option.id} option={option} setOption={option=>setInteraction({...interaction,options:interaction.options.map(op=>op.id===option.id?option:op)})}/>
       ))}
       {interaction.hints.map(hint => (
-        <Hint key={hint.id} hint={hint} options={memoOptions} />
+        <Hint key={hint.id} hint={hint} options={memoOptions} setHint={hint=>setInteraction({...interaction,hints:interaction.hints.map(hin=>hin.id===hint.id?hint:hin)})} />
       ))}
     </div>
   );
