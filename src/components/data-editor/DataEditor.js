@@ -6,7 +6,7 @@ export default ({ dataSource }) => {
   const setPlace = place => {
     setData({
       ...data,
-      places: data.places.map(pl => (pl.name === place.name ? place : pl))
+      places: data.places.map(pl => (pl.id === place.id ? place : pl))
     });
   };
   return (
