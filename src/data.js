@@ -55,16 +55,14 @@ export default {
         "id": 6,
         "text": "Look at their faces, are they smiling?",
         "options": [
-         "upset",
-         "happy"
+         4,5
         ]
        },
        {
         "id": 7,
         "text": "Look if they are having fun?",
         "options": [
-         "playing",
-         "they are fighting"
+        2,3
         ]
        }
       ]
@@ -98,8 +96,7 @@ export default {
         "id": 11,
         "text": "Look at his face, are they smiling?",
         "options": [
-         "upset",
-         "happy"
+       9,10
         ]
        }
       ]
@@ -153,16 +150,14 @@ export default {
         "id": 18,
         "text": "Look at their faces, are they smiling?",
         "options": [
-         "upset",
-         "happy"
+        16,17
         ]
        },
        {
         "id": 19,
         "text": "Look if they are having fun?",
         "options": [
-         "playing",
-         "they are fighting"
+         14,15
         ]
        }
       ]
@@ -195,8 +190,7 @@ export default {
         "id": 23,
         "text": "Look at his face, are they smiling?",
         "options": [
-         "upset",
-         "happy"
+        21,22
         ]
        }
       ]
