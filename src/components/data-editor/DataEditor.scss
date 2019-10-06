@@ -15,16 +15,33 @@
   }
   .editor-place {
     margin-left: 1rem;
-     border: 1px solid grey;
-      border-radius: 3px;  
-      padding: 1rem;
-      margin-top:1rem;
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 1rem;
+    margin-top: 1rem;
+
+    .place-image {
+      width: 200px;
+    }
+    .city-map {
+      position: relative;
+      width: 200px;
+      img {
+        width: 100%;
+        filter: grayscale(1);
+      }
+      .marker {
+        position: absolute;
+        border: 2px solid black;
+        border-radius: 50%;
+      }
+    }
     .editor-interaction {
       margin-left: 1rem;
       border: 1px solid grey;
-      border-radius: 3px;  
+      border-radius: 3px;
       padding: 1rem;
-      margin-top:1rem;
+      margin-top: 1rem;
       .editor-option {
         padding-left: 1rem;
       }

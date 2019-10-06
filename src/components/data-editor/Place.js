@@ -47,6 +47,13 @@ export default ({ place, setPlace, deletePlace }) => (
           value={place.image}
         />
       </label>
+      <img className="place-image" src={"/assets/img/"+place.image} />
+      
+    </div>
+    <div className="city-map">
+      <img src="/assets/img/citymap.png" />
+      <div className="marker" style={{width:"20px",height:"20px",left:place.positionOnMap[0]+"%",top:place.positionOnMap[1]+"%"}}></div>
+
     </div>
     <div>
       <label>
