@@ -1,6 +1,7 @@
 import React from 'react';
-import './App.css';
-import DataEditor from './components/data-editor/DataEditor';
+import './App.scss';
+import DataEditor from './data-editor/DataEditor';
+import StartButton from "./StartButton";
 
 
 function App({dataSource}) {
@@ -18,7 +19,12 @@ function App({dataSource}) {
        console.log(d)
        setData(d)
      }}>IDS</button>
-     <textarea style={{width:"100%",height:"200px"}} value={"export default "+JSON.stringify(data,null," ")}></textarea> */}
+    <textarea style={{width:"100%",height:"200px"}} value={"export default "+JSON.stringify(data,null," ")}></textarea> */}
+    <StartButton
+      whenClicked={() => {
+        console.log("clicked");
+      }}
+    />
     </div>
   );
 }
