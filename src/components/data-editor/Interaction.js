@@ -135,6 +135,7 @@ export default ({ interaction, setInteraction, image }) => {
           />
       ))}
      </div>
+     <h4>Hints</h4>
       {interaction.hints.map(hint => (
         <Hint
           key={hint.id}

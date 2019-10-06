@@ -73,6 +73,16 @@
       .editor-option{
         margin-bottom: 1rem;
       }
+      .editor-hint{
+        ul {
+          list-style: none;
+          display: flex;
+          margin-block-start: 0;
+          li {
+            margin-right: 1rem;
+          }
+        }
+      }
       .interaction-mapping {
         display: flex;
         & > * {

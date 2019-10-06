@@ -1,16 +1,17 @@
 import React from "react";
 
 export default ({ hint, setHint, options }) => (
-  <div>
-    <h6>
+  <div className="editor-hint">
+    <div>
       <label>
-        Hint:{" "}
+        Text:{" "}
         <input
+          className="long-text"
           value={hint.text}
           onChange={e => setHint({ ...hint, text: e.target.value })}
         />
       </label>
-    </h6>
+    </div>
     <ul>
       {options.map(option => (
         <li key={option.id}>
@@ -18,6 +19,7 @@ export default ({ hint, setHint, options }) => (
             {option.name}
 
             <input
+             
               type="checkbox"
               onChange={e => {
                 setHint({
