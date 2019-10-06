@@ -12,28 +12,42 @@ export default ({ dataSource }) => {
   };
   return (
     <div className="editor">
-      <button
-        onClick={() => {
-          setData({
-            ...data,
-            places: data.places.concat({
-              id: data.meta.sequence++,
-              displayName:"",
-              name: "newPlace",
-              starsToUnlock: 0,
-              image: "playground.png",
-              positionOnMap: [0, 0],
-              interactions: []
-            })
-          });
-        }}
-        className="addNew"
-      >
-        Add New Place
-      </button>
-      <h2>Places</h2>
+      <h1>Scenario Editor</h1>
+      <h2>
+        Places{" "}
+        <button
+          onClick={() => {
+            setData({
+              ...data,
+              places: data.places.concat({
+                id: data.meta.sequence++,
+                displayName: "",
+                name: "newPlace",
+                starsToUnlock: 0,
+                image: "playground.png",
+                positionOnMap: [0, 0],
+                interactions: []
+              })
+            });
+          }}
+          className="addNew"
+        >
+          + New
+        </button>
+      </h2>
       {data.places.map(place => (
-        <Place key={place.id} setPlace={setPlace} deletePlace={()=>setData({...data,places:data.places.filter(pl=>place.id!==pl.id)})} place={place} />
+        <Place
+          key={place.id}
+          meta={data.meta}
+          setPlace={setPlace}
+          deletePlace={() =>
+            setData({
+              ...data,
+              places: data.places.filter(pl => place.id !== pl.id)
+            })
+          }
+          place={place}
+        />
       ))}
       <textarea
         readOnly

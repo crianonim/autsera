@@ -2,12 +2,12 @@ import React from "react";
 import Option from "./Option";
 import Hint from "./Hint";
 
-export default ({ interaction, setInteraction, image }) => {
+export default ({ interaction, setInteraction, deleteInteraction,image }) => {
   return (
     <div className="editor-interaction">
       <div>
         <label>
-          Interaction Title:{" "}
+          Interaction Title:{" "} 
           <input
             className="long-text"
             value={interaction.title}
@@ -16,6 +16,7 @@ export default ({ interaction, setInteraction, image }) => {
             }
           />
         </label>{" "}
+        <button onClick={deleteInteraction}>x Delete Interaction</button>
       </div>
       <div>
         <label>
