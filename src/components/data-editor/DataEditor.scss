@@ -1,4 +1,10 @@
 .editor {
+  .number {
+    width: 2.5rem;
+  }
+  .long-text {
+    width: 20rem;
+  }
   button {
     background-color: transparent;
     color: inherit;
@@ -19,7 +25,23 @@
     border-radius: 3px;
     padding: 1rem;
     margin-top: 1rem;
+    & > div {
+      margin-top: 1rem;
+    }
+    .editor-place-map {
+      display: flex;
 
+      & > div {
+        margin-left: 1rem;
+      }
+      .map-data {
+        display: flex;
+        flex-direction: column;
+        & > * {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
     .place-image {
       width: 200px;
     }
@@ -42,6 +64,22 @@
       border-radius: 3px;
       padding: 1rem;
       margin-top: 1rem;
+      & > div {
+        margin-bottom: 1rem;  
+      }
+      .interaction-mapping {
+        display: flex;
+        & > * {
+          margin-left: 1rem;
+        }
+        .map-data {
+          display: flex;
+          flex-direction: column;
+          & > * {
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
       .interaction-map {
         position: relative;
         width: 200px;
@@ -56,7 +94,6 @@
           border: 2px solid black;
           border-radius: 50%;
         }
-          
       }
       .editor-option {
         padding-left: 1rem;

@@ -7,8 +7,9 @@ export default ({ interaction, setInteraction, image }) => {
     <div className="editor-interaction">
       <div>
         <label>
-          Interaction:{" "}
+          Interaction Title:{" "}
           <input
+            className="long-text"
             value={interaction.title}
             onChange={e =>
               setInteraction({ ...interaction, title: e.target.value })
@@ -20,6 +21,7 @@ export default ({ interaction, setInteraction, image }) => {
         <label>
           localStarsToUnlock:{" "}
           <input
+            className="number"
             type="number"
             value={interaction.localStarsToUnlock}
             onChange={e =>
@@ -31,63 +33,90 @@ export default ({ interaction, setInteraction, image }) => {
           />
         </label>
       </div>
-      <div>
-        <label>
-          positionOnPlace:
-          <input
-            type="number"
-            onChange={e => {
-              setInteraction({
-                ...interaction,
-                positionOnPlace: [
-                  e.target.value,
-                  interaction.positionOnPlace[1]
-                ]
-              });
+      <div className="interaction-mapping">
+        <div className="map-data">
+          <div>
+            <label>
+              Image file:<br />
+              <input 
+                value={interaction.image}
+                onChange={e=>{setInteraction({
+                  ...interaction,
+                  image:e.target.value
+                })}}
+              />
+            </label>
+          </div>
+          <div>Position In Place
+          <br />
+            <label>
+              x:{" "}
+              <input
+                className="number"
+                type="number"
+                onChange={e => {
+                  setInteraction({
+                    ...interaction,
+                    positionOnPlace: [
+                      e.target.value,
+                      interaction.positionOnPlace[1]
+                    ]
+                  });
+                }}
+                value={interaction.positionOnPlace[0]}
+              />
+            </label>
+            <label>
+              y:{" "}
+              <input
+                className="number"
+                type="number"
+                onChange={e => {
+                  setInteraction({
+                    ...interaction,
+                    positionOnPlace: [
+                      interaction.positionOnPlace[0],
+                      e.target.value
+                    ]
+                  });
+                }}
+                value={interaction.positionOnPlace[1]}
+              />
+            </label>
+          </div>
+          <label>
+            Radius:
+            <br />
+            <input
+            className="number"
+              type="number"
+              onChange={e => {
+                setInteraction({
+                  ...interaction,
+                  radiusOnPlace: e.target.value
+                });
+              }}
+              value={interaction.radiusOnPlace}
+            />
+          </label>
+        </div>
+        <div className="interaction-map">
+          <img src={"/assets/img/" + image} />
+          <svg
+            viewBox="0 0 202 202"
+            fill="#ff000080"
+            stroke="red"
+            style={{
+              width: interaction.radiusOnPlace + "%",
+              left: interaction.positionOnPlace[0] + "%",
+              top: interaction.positionOnPlace[1] + "%"
             }}
-            value={interaction.positionOnPlace[0]}
-          />
-          <input
-            type="number"
-            onChange={e => {
-              setInteraction({
-                ...interaction,
-                positionOnPlace: [
-                  interaction.positionOnPlace[0],
-                  e.target.value
-                ]
-              });
-            }}
-            value={interaction.positionOnPlace[1]}
-          />
-        </label>
-        <label>
-          Radius:
-          <input
-            type="number"
-            onChange={e => {
-              setInteraction({ ...interaction, radiusOnPlace: e.target.value });
-            }}
-            value={interaction.radiusOnPlace}
-          />
-        </label>
+          >
+            <circle r="100" cx="101" cy="101" />
+          </svg>
+        </div>
       </div>
-      <div className="interaction-map">
-        <img src={"/assets/img/" + image} />
-        <svg
-          viewBox="0 0 202 202"
-          fill="#ff000080"
-          stroke="red"
-          style={{
-            width: interaction.radiusOnPlace + "%",
-            left: interaction.positionOnPlace[0] + "%",
-            top: interaction.positionOnPlace[1] + "%"
-          }}
-        >
-          <circle r="100" cx="101" cy="101" />
-        </svg>
-        
-      </div>
+
       <h4>Options</h4>
       {interaction.options.map(option => (
         <Option
