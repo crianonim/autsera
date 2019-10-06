@@ -14,19 +14,22 @@ export default ({ hint, setHint, options }) => (
     <ul>
       {options.map(option => (
         <li key={option.id}>
+          <label>
+            {option.name}
+
           <input
             type="checkbox"
             onChange={e => {
               setHint({
                 ...hint,
                 options: e.target.checked
-                  ? hint.options.concat(option.id)
-                  : hint.options.filter(el => el !== option.id)
+                ? hint.options.concat(option.id)
+                : hint.options.filter(el => el !== option.id)
               });
             }}
             checked={hint.options.includes(option.id)}
-          />
-          {option.name}
+            />
+            </label>
         </li>
       ))}
     </ul>
