@@ -3,7 +3,7 @@ import Interaction from "./Interaction";
 
 export default ({ place, setPlace, deletePlace }) => (
   <div className="editor-place">
-    <h2>
+    <div>
       <label>
         Place name:{" "}
         <input
@@ -13,7 +13,7 @@ export default ({ place, setPlace, deletePlace }) => (
           }}
         />
       </label><button onClick={deletePlace}>DEL</button>
-    </h2>
+    </div>
     <div>
       <label>
         displayName:{" "}
@@ -37,6 +37,37 @@ export default ({ place, setPlace, deletePlace }) => (
         />
       </label>
     </div>
+    <div>
+      <label>
+        image:{" "}
+        <input
+          onChange={e => {
+            setPlace({ ...place, image: e.target.value });
+          }}
+          value={place.image}
+        />
+      </label>
+    </div>
+    <div>
+      <label>
+        Position on Map:{" "}
+        <input
+          type="number"
+          onChange={e => {
+            setPlace({ ...place, positionOnMap:[e.target.value,place.positionOnMap[1]] });
+          }}
+          value={place.positionOnMap[0]}
+        />
+         <input
+          type="number"
+          onChange={e => {
+            setPlace({ ...place, positionOnMap:[place.positionOnMap[0],e.target.value] });
+          }}
+          value={place.positionOnMap[1]}
+        />
+      </label>
+    </div>
+    <h3>Interactions</h3>
     {place.interactions.map(interaction => (
       <Interaction
         key={interaction.id}

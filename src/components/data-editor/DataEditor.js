@@ -1,5 +1,6 @@
 import React from "react";
 import Place from "./Place";
+import "./DataEditor.scss";
 
 export default ({ dataSource }) => {
   const [data, setData] = React.useState(dataSource);
@@ -30,6 +31,7 @@ export default ({ dataSource }) => {
       >
         Add New Place
       </button>
+      <h2>Places</h2>
       {data.places.map(place => (
         <Place key={place.id} setPlace={setPlace} deletePlace={()=>setData({...data,places:data.places.filter(pl=>place.id!==pl.id)})} place={place} />
       ))}

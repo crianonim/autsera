@@ -2,7 +2,7 @@ import React from "react";
 
 export default ({ option, setOption }) => (
   <div className="editor-option">
-    <h4>
+    <div>
       <label>
         Option:{" "}
         <input
@@ -10,7 +10,7 @@ export default ({ option, setOption }) => (
           onChange={e => setOption({ ...option, name: e.target.value })}
         />
       </label>
-    </h4>
+    </div>
     <label>
       Correct:{" "}
       <input

@@ -109,6 +109,10 @@ export default {
     "displayName": "The Old Cementary",
     "starsToUnlock": 3,
     "image": "cemetary.png",
+    "positionOnMap": [
+     23,
+     12
+    ],
     "interactions": [
      {
       "id": 13,

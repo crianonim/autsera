@@ -1,0 +1,34 @@
+.editor {
+  button {
+    background-color: transparent;
+    color: inherit;
+    border: 1px solid grey;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 2px;
+    margin-right: 2px;
+
+    &:hover {
+      background-color: grey;
+      color: white;
+    }
+  }
+  .editor-place {
+    margin-left: 1rem;
+     border: 1px solid grey;
+      border-radius: 3px;  
+      padding: 1rem;
+      margin-top:1rem;
+    .editor-interaction {
+      margin-left: 1rem;
+      border: 1px solid grey;
+      border-radius: 3px;  
+      padding: 1rem;
+      margin-top:1rem;
+      .editor-option {
+        padding-left: 1rem;
+      }
+    }
+  }
+  padding: 2rem;
+}
