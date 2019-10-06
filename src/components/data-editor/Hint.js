@@ -17,19 +17,19 @@ export default ({ hint, setHint, options }) => (
           <label>
             {option.name}
 
-          <input
-            type="checkbox"
-            onChange={e => {
-              setHint({
-                ...hint,
-                options: e.target.checked
-                ? hint.options.concat(option.id)
-                : hint.options.filter(el => el !== option.id)
-              });
-            }}
-            checked={hint.options.includes(option.id)}
+            <input
+              type="checkbox"
+              onChange={e => {
+                setHint({
+                  ...hint,
+                  options: e.target.checked
+                    ? hint.options.concat(option.id)
+                    : hint.options.filter(el => el !== option.id)
+                });
+              }}
+              checked={hint.options.includes(option.id)}
             />
-            </label>
+          </label>
         </li>
       ))}
     </ul>
