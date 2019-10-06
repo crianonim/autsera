@@ -79,6 +79,7 @@ export default ({ place, setPlace, deletePlace }) => (
       <Interaction
         key={interaction.id}
         interaction={interaction}
+        image={place.image}
         setInteraction={(inter) => {
             setPlace({...place,interactions:place.interactions.map(interaction=>interaction.id===inter.id?inter:interaction)})
         }}

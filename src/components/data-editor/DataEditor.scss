@@ -42,6 +42,22 @@
       border-radius: 3px;
       padding: 1rem;
       margin-top: 1rem;
+      .interaction-map {
+        position: relative;
+        width: 200px;
+        img {
+          width: 100%;
+          filter: grayscale(1);
+        }
+        svg {
+          position: absolute;
+        }
+        .marker {
+          border: 2px solid black;
+          border-radius: 50%;
+        }
+          
+      }
       .editor-option {
         padding-left: 1rem;
       }

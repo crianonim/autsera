@@ -2,7 +2,7 @@ import React from "react";
 import Option from "./Option";
 import Hint from "./Hint";
 
-export default ({ interaction, setInteraction }) => {
+export default ({ interaction, setInteraction, image }) => {
   return (
     <div className="editor-interaction">
       <div>
@@ -16,19 +16,78 @@ export default ({ interaction, setInteraction }) => {
           />
         </label>{" "}
       </div>
-      <label>
-        localStarsToUnlock:{" "}
-        <input
-          type="number"
-          value={interaction.localStarsToUnlock}
-          onChange={e =>
-            setInteraction({
-              ...interaction,
-              localStarsToUnlock: e.target.value
-            })
-          }
-        />
-      </label>
+      <div>
+        <label>
+          localStarsToUnlock:{" "}
+          <input
+            type="number"
+            value={interaction.localStarsToUnlock}
+            onChange={e =>
+              setInteraction({
+                ...interaction,
+                localStarsToUnlock: e.target.value
+              })
+            }
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          positionOnPlace:
+          <input
+            type="number"
+            onChange={e => {
+              setInteraction({
+                ...interaction,
+                positionOnPlace: [
+                  e.target.value,
+                  interaction.positionOnPlace[1]
+                ]
+              });
+            }}
+            value={interaction.positionOnPlace[0]}
+          />
+          <input
+            type="number"
+            onChange={e => {
+              setInteraction({
+                ...interaction,
+                positionOnPlace: [
+                  interaction.positionOnPlace[0],
+                  e.target.value
+                ]
+              });
+            }}
+            value={interaction.positionOnPlace[1]}
+          />
+        </label>
+        <label>
+          Radius:
+          <input
+            type="number"
+            onChange={e => {
+              setInteraction({ ...interaction, radiusOnPlace: e.target.value });
+            }}
+            value={interaction.radiusOnPlace}
+          />
+        </label>
+      </div>
+      <div className="interaction-map">
+        <img src={"/assets/img/" + image} />
+        <svg
+          viewBox="0 0 202 202"
+          fill="#ff000080"
+          stroke="red"
+          style={{
+            width: interaction.radiusOnPlace + "%",
+            left: interaction.positionOnPlace[0] + "%",
+            top: interaction.positionOnPlace[1] + "%"
+          }}
+        >
+          <circle r="100" cx="101" cy="101" />
+        </svg>
+        
+      </div>
       <h4>Options</h4>
       {interaction.options.map(option => (
         <Option
