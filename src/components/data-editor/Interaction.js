@@ -101,7 +101,7 @@ export default ({ interaction, setInteraction, image }) => {
           </label>
         </div>
         <div className="interaction-map">
-          <img src={"/assets/img/" + image} />
+          <img src={"/assets/img/" + image} alt="map" />
           <svg
             viewBox="0 0 202 202"
             fill="#ff000080"
@@ -118,20 +118,23 @@ export default ({ interaction, setInteraction, image }) => {
       </div>
 
       <h4>Options</h4>
+      <div className="editor-option-list">
+
       {interaction.options.map(option => (
         <Option
-          key={option.id}
+        key={option.id}
           option={option}
           setOption={option =>
             setInteraction({
               ...interaction,
               options: interaction.options.map(op =>
                 op.id === option.id ? option : op
-              )
+                )
             })
           }
-        />
+          />
       ))}
+     </div>
       {interaction.hints.map(hint => (
         <Hint
           key={hint.id}
