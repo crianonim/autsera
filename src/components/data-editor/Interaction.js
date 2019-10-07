@@ -2,12 +2,12 @@ import React from "react";
 import Option from "./Option";
 import Hint from "./Hint";
 
-export default ({ interaction, setInteraction, deleteInteraction,image }) => {
+export default ({ interaction, setInteraction, deleteInteraction, image }) => {
   return (
     <div className="editor-interaction">
       <div>
         <label>
-          Interaction Title:{" "} 
+          Interaction Title:{" "}
           <input
             className="long-text"
             value={interaction.title}
@@ -38,18 +38,22 @@ export default ({ interaction, setInteraction, deleteInteraction,image }) => {
         <div className="map-data">
           <div>
             <label>
-              Image file:<br />
-              <input 
+              Image file:
+              <br />
+              <input
                 value={interaction.image}
-                onChange={e=>{setInteraction({
-                  ...interaction,
-                  image:e.target.value
-                })}}
+                onChange={e => {
+                  setInteraction({
+                    ...interaction,
+                    image: e.target.value
+                  });
+                }}
               />
             </label>
           </div>
-          <div>Position In Place
-          <br />
+          <div>
+            Position In Place
+            <br />
             <label>
               x:{" "}
               <input
@@ -89,7 +93,7 @@ export default ({ interaction, setInteraction, deleteInteraction,image }) => {
             Radius:
             <br />
             <input
-            className="number"
+              className="number"
               type="number"
               onChange={e => {
                 setInteraction({
@@ -120,23 +124,22 @@ export default ({ interaction, setInteraction, deleteInteraction,image }) => {
 
       <h4>Options</h4>
       <div className="editor-option-list">
-
-      {interaction.options.map(option => (
-        <Option
-        key={option.id}
-          option={option}
-          setOption={option =>
-            setInteraction({
-              ...interaction,
-              options: interaction.options.map(op =>
-                op.id === option.id ? option : op
+        {interaction.options.map(option => (
+          <Option
+            key={option.id}
+            option={option}
+            setOption={option =>
+              setInteraction({
+                ...interaction,
+                options: interaction.options.map(op =>
+                  op.id === option.id ? option : op
                 )
-            })
-          }
+              })
+            }
           />
-      ))}
-     </div>
-     <h4>Hints</h4>
+        ))}
+      </div>
+      <h4>Hints</h4>
       {interaction.hints.map(hint => (
         <Hint
           key={hint.id}

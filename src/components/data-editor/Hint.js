@@ -19,7 +19,6 @@ export default ({ hint, setHint, options }) => (
             {option.name}
 
             <input
-             
               type="checkbox"
               onChange={e => {
                 setHint({
