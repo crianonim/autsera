@@ -6,7 +6,7 @@ it("renders a Hint with correct text", () => {
   const { getByLabelText } = render(
     <Hint options={[]} hint={{ text: "hin1" }} />
   );
-  const input = getByLabelText("Hint:");
+  const input = getByLabelText("Text:");
   expect(input.value).toBe("hin1");
 });
 
@@ -30,7 +30,7 @@ it("triggers setHint when editing text value", () => {
   const { getByLabelText } = render(
     <Hint options={[]} setHint={setHint} hint={{ text: "hin1" }} />
   );
-  const input = getByLabelText("Hint:");
+  const input = getByLabelText("Text:");
   fireEvent.change(input, { target: { value: "hint2" } });
   expect(setHint).toHaveBeenCalledTimes(1);
   expect(setHint).toHaveBeenCalledWith({ text: "hint2" });
