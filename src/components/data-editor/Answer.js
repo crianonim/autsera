@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ answer, setAnswer }) => (
+export default ({ answer, setAnswer,deleteAnswer }) => (
   <div className="editor-answer">
     <div className="flex-row">
       <div>
@@ -22,6 +22,7 @@ export default ({ answer, setAnswer }) => (
           type="checkbox"
         />
       </label>
+      <button onClick={deleteAnswer}>x Delete</button>
     </div>
     <div>
       <label>

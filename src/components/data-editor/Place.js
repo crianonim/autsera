@@ -121,6 +121,7 @@ export default ({ place, setPlace, deletePlace, meta }) => (
         key={interaction.id}
         interaction={interaction}
         image={place.image}
+        meta={meta}
         deleteInteraction={() =>
           setPlace({
             ...place,

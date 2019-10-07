@@ -2,7 +2,7 @@ import React from "react";
 import Answer from "./Answer";
 import Hint from "./Hint";
 
-export default ({ interaction, setInteraction, deleteInteraction, image }) => {
+export default ({ interaction, setInteraction, deleteInteraction, image, meta }) => {
   return (
     <div className="editor-interaction">
       <div>
@@ -122,12 +122,23 @@ export default ({ interaction, setInteraction, deleteInteraction, image }) => {
         </div>
       </div>
 
-      <h4>Answers</h4>
+      <h4>Answers<button onClick={()=>{
+        setInteraction({...interaction,answers:interaction.answers.concat({
+          id:meta.sequence++,
+          text:"new",
+          correct:false,
+          response:"new response"
+        })})
+      }}>+ New</button>
+      </h4>
       <div className="editor-answer-list">
         {interaction.answers.map(answer => (
           <Answer
             key={answer.id}
             answer={answer}
+            deleteAnswer={()=>{
+              setInteraction({...interaction,answers:interaction.answers.filter(ans=>ans.id!==answer.id)})
+            }}
             setAnswer={answer =>
               setInteraction({
                 ...interaction,
@@ -139,11 +150,18 @@ export default ({ interaction, setInteraction, deleteInteraction, image }) => {
           />
         ))}
       </div>
-      <h4>Hints</h4>
+      <h4>Hints<button onClick={()=>{
+        setInteraction({...interaction,hints:interaction.hints.concat({
+          id:meta.sequence++,
+          text:"new",
+          answers:[],
+        })})
+      }}>+ New</button></h4>
       {interaction.hints.map(hint => (
         <Hint
           key={hint.id}
           hint={hint}
+          deleteHint={()=>setInteraction({...interaction,hints:interaction.hints.filter(el=>el.id!==hint.id)})}
           answers={interaction.answers}
           setHint={hint =>
             setInteraction({

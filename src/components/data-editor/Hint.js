@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ hint, setHint, answers }) => (
+export default ({ hint, setHint, answers, deleteHint }) => (
   <div className="editor-hint">
     <div>
       <label>
@@ -11,12 +11,13 @@ export default ({ hint, setHint, answers }) => (
           onChange={e => setHint({ ...hint, text: e.target.value })}
         />
       </label>
+        <button onClick={deleteHint}>x Delete</button>
     </div>
     <ul>
-      {answers.map(option => (
-        <li key={option.id}>
+      {answers.map(answer => (
+        <li key={answer.id}>
           <label>
-            {option.name}
+            {answer.text}
 
             <input
               type="checkbox"
@@ -24,11 +25,11 @@ export default ({ hint, setHint, answers }) => (
                 setHint({
                   ...hint,
                   answers: e.target.checked
-                    ? hint.answers.concat(option.id)
-                    : hint.answers.filter(el => el !== option.id)
+                  ? hint.answers.concat(answer.id)
+                  : hint.answers.filter(el => el !== answer.id)
                 });
               }}
-              checked={hint.answers.includes(option.id)}
+              checked={hint.answers.includes(answer.id)}
             />
           </label>
         </li>
