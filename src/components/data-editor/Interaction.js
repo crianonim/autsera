@@ -1,5 +1,5 @@
 import React from "react";
-import Option from "./Option";
+import Answer from "./Answer";
 import Hint from "./Hint";
 
 export default ({ interaction, setInteraction, deleteInteraction, image }) => {
@@ -10,9 +10,9 @@ export default ({ interaction, setInteraction, deleteInteraction, image }) => {
           Interaction Title:{" "}
           <input
             className="long-text"
-            value={interaction.title}
+            value={interaction.text}
             onChange={e =>
-              setInteraction({ ...interaction, title: e.target.value })
+              setInteraction({ ...interaction, text: e.target.value })
             }
           />
         </label>{" "}
@@ -20,15 +20,15 @@ export default ({ interaction, setInteraction, deleteInteraction, image }) => {
       </div>
       <div>
         <label>
-          localStarsToUnlock:{" "}
+          requiredStars:{" "}
           <input
             className="number"
             type="number"
-            value={interaction.localStarsToUnlock}
+            value={interaction.requiredStars}
             onChange={e =>
               setInteraction({
                 ...interaction,
-                localStarsToUnlock: e.target.value
+                requiredStars: e.target.value
               })
             }
           />
@@ -52,7 +52,7 @@ export default ({ interaction, setInteraction, deleteInteraction, image }) => {
             </label>
           </div>
           <div>
-            Position In Place
+            Coordinates
             <br />
             <label>
               x:{" "}
@@ -62,13 +62,13 @@ export default ({ interaction, setInteraction, deleteInteraction, image }) => {
                 onChange={e => {
                   setInteraction({
                     ...interaction,
-                    positionOnPlace: [
+                    coordinates: [
                       e.target.value,
-                      interaction.positionOnPlace[1]
+                      interaction.coordinates[1]
                     ]
                   });
                 }}
-                value={interaction.positionOnPlace[0]}
+                value={interaction.coordinates[0]}
               />
             </label>
             <label>
@@ -79,13 +79,13 @@ export default ({ interaction, setInteraction, deleteInteraction, image }) => {
                 onChange={e => {
                   setInteraction({
                     ...interaction,
-                    positionOnPlace: [
-                      interaction.positionOnPlace[0],
+                    coordinates: [
+                      interaction.coordinates[0],
                       e.target.value
                     ]
                   });
                 }}
-                value={interaction.positionOnPlace[1]}
+                value={interaction.coordinates[1]}
               />
             </label>
           </div>
@@ -98,10 +98,10 @@ export default ({ interaction, setInteraction, deleteInteraction, image }) => {
               onChange={e => {
                 setInteraction({
                   ...interaction,
-                  radiusOnPlace: e.target.value
+                  radius: e.target.value
                 });
               }}
-              value={interaction.radiusOnPlace}
+              value={interaction.radius}
             />
           </label>
         </div>
@@ -112,9 +112,9 @@ export default ({ interaction, setInteraction, deleteInteraction, image }) => {
             fill="#ff000080"
             stroke="red"
             style={{
-              width: interaction.radiusOnPlace + "%",
-              left: interaction.positionOnPlace[0] + "%",
-              top: interaction.positionOnPlace[1] + "%"
+              width: interaction.radius + "%",
+              left: interaction.coordinates[0] + "%",
+              top: interaction.coordinates[1] + "%"
             }}
           >
             <circle r="100" cx="101" cy="101" />
@@ -122,17 +122,17 @@ export default ({ interaction, setInteraction, deleteInteraction, image }) => {
         </div>
       </div>
 
-      <h4>Options</h4>
-      <div className="editor-option-list">
-        {interaction.options.map(option => (
-          <Option
-            key={option.id}
-            option={option}
-            setOption={option =>
+      <h4>Answers</h4>
+      <div className="editor-answer-list">
+        {interaction.answers.map(answer => (
+          <Answer
+            key={answer.id}
+            answer={answer}
+            setAnswer={answer =>
               setInteraction({
                 ...interaction,
-                options: interaction.options.map(op =>
-                  op.id === option.id ? option : op
+                answers: interaction.answers.map(op =>
+                  op.id === answer.id ? answer : op
                 )
               })
             }
@@ -144,7 +144,7 @@ export default ({ interaction, setInteraction, deleteInteraction, image }) => {
         <Hint
           key={hint.id}
           hint={hint}
-          options={interaction.options}
+          answers={interaction.answers}
           setHint={hint =>
             setInteraction({
               ...interaction,

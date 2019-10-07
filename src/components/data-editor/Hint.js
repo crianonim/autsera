@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ hint, setHint, options }) => (
+export default ({ hint, setHint, answers }) => (
   <div className="editor-hint">
     <div>
       <label>
@@ -13,7 +13,7 @@ export default ({ hint, setHint, options }) => (
       </label>
     </div>
     <ul>
-      {options.map(option => (
+      {answers.map(option => (
         <li key={option.id}>
           <label>
             {option.name}
@@ -23,12 +23,12 @@ export default ({ hint, setHint, options }) => (
               onChange={e => {
                 setHint({
                   ...hint,
-                  options: e.target.checked
-                    ? hint.options.concat(option.id)
-                    : hint.options.filter(el => el !== option.id)
+                  answers: e.target.checked
+                    ? hint.answers.concat(option.id)
+                    : hint.answers.filter(el => el !== option.id)
                 });
               }}
-              checked={hint.options.includes(option.id)}
+              checked={hint.answers.includes(option.id)}
             />
           </label>
         </li>

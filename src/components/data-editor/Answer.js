@@ -1,23 +1,23 @@
 import React from "react";
 
-export default ({ option, setOption }) => (
-  <div className="editor-option">
+export default ({ answer, setAnswer }) => (
+  <div className="editor-answer">
     <div className="flex-row">
       <div>
         <label>
-          Option:{" "}
+          Answer:{" "}
           <input
-            value={option.name}
-            onChange={e => setOption({ ...option, name: e.target.value })}
+            value={answer.text}
+            onChange={e => setAnswer({ ...answer, text: e.target.value })}
           />
         </label>
       </div>
       <label>
         Correct:{" "}
         <input
-          checked={option.correct}
+          checked={answer.correct}
           onChange={e => {
-            setOption({ ...option, correct: e.target.checked });
+            setAnswer({ ...answer, correct: e.target.checked });
           }}
           type="checkbox"
         />
@@ -28,8 +28,8 @@ export default ({ option, setOption }) => (
         Response:{" "}
         <input
           className="long-text"
-          value={option.response}
-          onChange={e => setOption({ ...option, response: e.target.value })}
+          value={answer.response}
+          onChange={e => setAnswer({ ...answer, response: e.target.value })}
         />
       </label>
     </div>

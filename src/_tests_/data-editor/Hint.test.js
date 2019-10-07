@@ -4,20 +4,20 @@ import Hint from "../../components/data-editor/Hint";
 
 it("renders a Hint with correct text", () => {
   const { getByLabelText } = render(
-    <Hint options={[]} hint={{ text: "hin1" }} />
+    <Hint answers={[]} hint={{ text: "hin1" }} />
   );
   const input = getByLabelText("Text:");
   expect(input.value).toBe("hin1");
 });
 
-it("renders a Hint with correct options texts and checked boxes correctly", () => {
+it("renders a Hint with correct answers texts and checked boxes correctly", () => {
   const { getByLabelText } = render(
     <Hint
-      options={[
+      answers={[
         { name: "op1", correct: true, id: 1 },
         { name: "op2", correct: false, id: 2 }
       ]}
-      hint={{ text: "hin1", options: [1] }}
+      hint={{ text: "hin1", answers: [1] }}
     />
   );
   const input1 = getByLabelText("op1");
@@ -28,7 +28,7 @@ it("renders a Hint with correct options texts and checked boxes correctly", () =
 it("triggers setHint when editing text value", () => {
   const setHint = jest.fn();
   const { getByLabelText } = render(
-    <Hint options={[]} setHint={setHint} hint={{ text: "hin1" }} />
+    <Hint answers={[]} setHint={setHint} hint={{ text: "hin1" }} />
   );
   const input = getByLabelText("Text:");
   fireEvent.change(input, { target: { value: "hint2" } });
@@ -40,19 +40,19 @@ it("triggers setHint when clicking on checkboxes correctly", () => {
   const { getByLabelText } = render(
     <Hint
       setHint={setHint}
-      options={[
+      answers={[
         { name: "op1", correct: true, id: 1 },
         { name: "op2", correct: false, id: 2 }
       ]}
-      hint={{ text: "hin1", options: [1] }}
+      hint={{ text: "hin1", answers: [1] }}
     />
   );
   const input1 = getByLabelText("op1");
   fireEvent.click(input1);
   expect(setHint).toHaveBeenCalledTimes(1);
-  expect(setHint).toHaveBeenCalledWith({ text: "hin1", options: [] });
+  expect(setHint).toHaveBeenCalledWith({ text: "hin1", answers: [] });
   const input2 = getByLabelText("op2");
   fireEvent.click(input2);
   expect(setHint).toHaveBeenCalledTimes(2);
-  expect(setHint).toHaveBeenLastCalledWith({ text: "hin1", options: [1, 2] });
+  expect(setHint).toHaveBeenLastCalledWith({ text: "hin1", answers: [1, 2] });
 });

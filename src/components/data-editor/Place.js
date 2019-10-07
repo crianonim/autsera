@@ -7,35 +7,25 @@ export default ({ place, setPlace, deletePlace, meta }) => (
       <label>
         Place name:{" "}
         <input
-          value={place.name}
+          value={place.text}
           onChange={e => {
-            setPlace({ ...place, name: e.target.value });
+            setPlace({ ...place, text: e.target.value });
           }}
         />
       </label>
       <button onClick={deletePlace}>x Delete Place</button>
     </div>
+   
     <div>
       <label>
-        displayName:{" "}
-        <input
-          onChange={e => {
-            setPlace({ ...place, displayName: e.target.value });
-          }}
-          value={place.displayName}
-        />
-      </label>
-    </div>
-    <div>
-      <label>
-        starsToUnlock:{" "}
+        Required Stars:{" "}
         <input
           className="number"
           type="number"
           onChange={e => {
-            setPlace({ ...place, starsToUnlock: e.target.value });
+            setPlace({ ...place, requiredStars: e.target.value });
           }}
-          value={place.starsToUnlock}
+          value={place.requiredStars}
         />
       </label>
     </div>
@@ -52,7 +42,7 @@ export default ({ place, setPlace, deletePlace, meta }) => (
           />
         </label>
         <div>
-          <div>Position on Map: </div>
+          <div>Coordinates: </div>
           <label>
             x:
             <input
@@ -61,10 +51,10 @@ export default ({ place, setPlace, deletePlace, meta }) => (
               onChange={e => {
                 setPlace({
                   ...place,
-                  positionOnMap: [e.target.value, place.positionOnMap[1]]
+                  coordinates: [e.target.value, place.coordinates[1]]
                 });
               }}
-              value={place.positionOnMap[0]}
+              value={place.coordinates[0]}
             />
           </label>
           <label>
@@ -75,10 +65,10 @@ export default ({ place, setPlace, deletePlace, meta }) => (
               onChange={e => {
                 setPlace({
                   ...place,
-                  positionOnMap: [place.positionOnMap[0], e.target.value]
+                  coordinates: [place.coordinates[0], e.target.value]
                 });
               }}
-              value={place.positionOnMap[1]}
+              value={place.coordinates[1]}
             />
           </label>
         </div>
@@ -97,8 +87,8 @@ export default ({ place, setPlace, deletePlace, meta }) => (
           style={{
             width: "20px",
             height: "20px",
-            left: place.positionOnMap[0] + "%",
-            top: place.positionOnMap[1] + "%"
+            left: place.coordinates[0] + "%",
+            top: place.coordinates[1] + "%"
           }}
         ></div>
       </div>
@@ -112,12 +102,12 @@ export default ({ place, setPlace, deletePlace, meta }) => (
             ...place,
             interactions: place.interactions.concat({
               id: meta.sequence++,
-              title: "New Interaction",
+              text: "New Interaction",
               image: "leoniereuben.png",
-              positionOnPlace: [6, 6],
-              radiusOnPlace: 9,
-              localStarsToUnlock: 2,
-              options: [],
+              coordinates: [6, 6],
+              radius: 9,
+              requiredStars: 2,
+              answers: [],
               hints: []
             })
           });

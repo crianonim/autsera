@@ -21,11 +21,10 @@ export default ({ dataSource }) => {
               ...data,
               places: data.places.concat({
                 id: data.meta.sequence++,
-                displayName: "",
-                name: "newPlace",
-                starsToUnlock: 0,
+                text: "newPlace",
+                requiredStars: 0,
                 image: "playground.png",
-                positionOnMap: [0, 0],
+                coordinates: [0, 0],
                 interactions: []
               })
             });
