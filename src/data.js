@@ -12,38 +12,62 @@ export default {
     "interactions": [
      {
       "id": 1,
-      "text": "Leonie and Reuben fighting",
+      "text": "Susi and Lisa",
       "image": "leoniereuben.png",
       "coordinates": [
-       20,
-       10
+       "1",
+       "50"
       ],
-      "radius": 12,
+      "radius": "34",
       "requiredStars": 0,
       "answers": [
        {
         "id": 2,
-        "text": "they are fighting",
-        "correct": true,
-        "response": "Correct! They look like they are fighting"
+        "text": "arguing",
+        "correct": false,
+        "response": "Look again, do they look like they are fighting?"
        },
        {
         "id": 3,
-        "text": "playing",
-        "correct": false,
-        "response": "Look again! Do they look like they are having fun?"
+        "text": "happy",
+        "correct": true,
+        "response": "Correct! They are smiling."
        },
        {
         "id": 4,
-        "text": "upset",
-        "correct": true,
-        "response": "Correct! They look upset"
+        "text": "sad",
+        "correct": false,
+        "response": "Look again, are they smiling?"
        },
        {
         "id": 5,
-        "text": "happy",
+        "text": "busy",
+        "correct": true,
+        "response": "Correct! They look busy."
+       },
+       {
+        "id": 31,
+        "text": "interested",
+        "correct": true,
+        "response": "Correct! They look interested."
+       },
+       {
+        "id": 32,
+        "text": "angry",
         "correct": false,
-        "response": "Look again, are they smiling?"
+        "response": "Look again, do they look like they are upset?"
+       },
+       {
+        "id": 33,
+        "text": "bored",
+        "correct": false,
+        "response": "Look again, do they look interested?"
+       },
+       {
+        "id": 34,
+        "text": "tired",
+        "correct": false,
+        "response": "Look again, do they look tired?"
        }
       ],
       "hints": [
@@ -51,16 +75,21 @@ export default {
         "id": 6,
         "text": "Look at their faces, are they smiling?",
         "answers": [
-         4,
-         5
+         3
         ]
        },
        {
         "id": 7,
-        "text": "Look if they are having fun?",
+        "text": "Do they look busy?",
         "answers": [
-         2,
-         3
+         5
+        ]
+       },
+       {
+        "id": 35,
+        "text": "Do they look bored or interested in what they are doing?",
+        "answers": [
+         31
         ]
        }
       ]
@@ -261,6 +290,6 @@ export default {
    }
   ],
   "meta": {
-   "sequence": 31
+   "sequence": 36
   }
  }
