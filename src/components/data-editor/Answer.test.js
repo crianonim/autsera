@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Answer from "../../components/data-editor/Answer";
+import Answer from "./Answer";
 
 it("renders Answer with correct text text", () => {
   const { getByLabelText } = render(<Answer answer={{ text: "op1" }} />);

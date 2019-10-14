@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Hint from "../../components/data-editor/Hint";
+import Hint from "./Hint";
 
 it("renders a Hint with correct text", () => {
   const { getByLabelText } = render(
@@ -14,8 +14,8 @@ it("renders a Hint with correct answers texts and checked boxes correctly", () =
   const { getByLabelText } = render(
     <Hint
       answers={[
-        { name: "op1", correct: true, id: 1 },
-        { name: "op2", correct: false, id: 2 }
+        { text: "op1", correct: true, id: 1 },
+        { text: "op2", correct: false, id: 2 }
       ]}
       hint={{ text: "hin1", answers: [1] }}
     />
@@ -41,8 +41,8 @@ it("triggers setHint when clicking on checkboxes correctly", () => {
     <Hint
       setHint={setHint}
       answers={[
-        { name: "op1", correct: true, id: 1 },
-        { name: "op2", correct: false, id: 2 }
+        { text: "op1", correct: true, id: 1 },
+        { text: "op2", correct: false, id: 2 }
       ]}
       hint={{ text: "hin1", answers: [1] }}
     />
